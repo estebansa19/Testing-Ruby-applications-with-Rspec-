@@ -1,0 +1,60 @@
+- RSpec setup, basics and concepts:
+  ☐ "It" expecify a property - example
+  ☐ "Describe" group examples / properties - example group
+  ☐ Expect BEHAVIOR and NOT IMPLEMENTATION
+  ☐ Test confidence ant not a 100% proof
+  ☐ Ruby set method LOL
+
+
+  ☐ Unit tests: Do our objects do the right thing? and are the convenient to work with?
+  ☐ Acceptance tests: Does the whole system work?
+  ☐ You need ALL of them
+
+  ☐ Hook scopes
+    - example: Once per example(it)
+    - context: Once per example group(describe)
+    - suite: Once per spec run
+
+    Warning: they can have a seemingly magical, ask yourself: is there a local way to solve your problem?
+
+- RSpec expectations
+  ☐ Basic equality:
+    - eq
+    - be </>/<=/>=
+    - match/start_with: Strings
+    - be_truthy: Not nil or false
+    - respond_to: Supports a method
+
+  ☐ Arrays:
+    - include
+    - all (something): Cada uno de los elementos del array, ejemplo: all(be >= 1)
+    - have_attributes: Ese elemento tiene cierta condición en los atributos, ejemplo: all(have_attributes(name: "Pepe"))
+
+  ☐ aggregate_failures para cuando se ejecutan varios expected en el mismo it, también se puede pasar como metadata en
+    los example_group
+  ☐ boolean compositions: ands and ors at the expect
+
+  ** Por repasar, como crear un custom matcher de rspec
+
+- Mocks
+  ☐ Mocks are a designing tool, not a testing tool
+  ☐ Mocks are like a scaffold to refactoring your code
+  ☐ instance_double: to create a double object that get the new changes of the code
+  ☐ Dual mode verify doubles
+
+- RSpec ecosystem
+  ☐ Is preferible expect than should, because:
+    - Requires monkey-patching every object in the system
+    - Can generate Ruby warnings
+
+    > Said by a member of the RSpec core
+  ☐ transpec gem for updating RSpec versions and solve conflicts. transpec some_spec.rb, cant fix anything but
+    will do the hard work. Only in majors versions
+  ☐ simplecov gem for code coverage, it accepts a coverage limit and some configurations
+  ☐ fivemat gem for a more readable output format
+
+- Hints:
+  ☐ Testing implementations tells:
+    - many expectations in a single example
+    - too many mocks
+    - use mocks for design
